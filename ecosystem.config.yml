@@ -1,0 +1,41 @@
+# the PM2 config
+
+apps:
+    - name: WWW_SERVER
+      script: ./server/index.js
+      instances: 1
+      exec_mode: cluster
+      exec_interpreter: node
+      #   node_args: --require @babel/register
+      max_memory_restart: 300M
+      error: ./tmp/logs/err.log
+      output: ./tmp/logs/out.log
+      merge_logs: true # cluster: merge log from different processes
+      #   log_type: json
+      log_date_format: YYYY-MM-DD HH:mm Z
+      watch_options:
+          usePolling: true
+      ignoreWatch:
+          - .git
+          - node_modules
+      env:
+          NODE_ENV: production
+          PORT: 5000
+      env_production:
+          NODE_ENV: production
+          PORT: 5000
+      env_development:
+          NODE_ENV: development
+          PORT: 5001
+      env_local:
+          NODE_ENV: local
+          PORT: 5003
+# deploy:
+#     production:
+#         user: root
+#         host: <IP_ADDRESS> # TODO
+#         path: /www/
+#         ref: origin/master
+#         repo: <git>
+#         pre-deploy: git reset --hard origin/master && git pull
+#         post-deploy: npm install && npm run build && cd ./dist/ && npx pm2 kill && npx pm2 startOrRestart ecosystem.config.yml --env production

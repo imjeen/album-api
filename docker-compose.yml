@@ -1,0 +1,19 @@
+version: "3.6"
+
+services:
+    album_mysql:
+        image: mysql:8.0.19
+        # image: mysql:5.6
+        container_name: c_am
+        command: --default-authentication-plugin=mysql_native_password
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+            MYSQL_USER: abc
+            MYSQL_PASSWORD: 123
+            MYSQL_DATABASE: test
+        volumes:
+            - "${MYSQL_DIR}/data:/var/lib/mysql" # 挂载数据目录
+            - "${MYSQL_DIR}/config:/etc/mysql/conf.d" # 挂载配置文件目录

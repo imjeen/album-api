@@ -1,0 +1,30 @@
+{
+    "name": "album",
+    "version": "1.0.0",
+    "description": "Awesome project developed with TypeORM.",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "connect-multiparty": "^2.2.0",
+        "express": "^4.16.4",
+        "mysql": "^2.14.1",
+        "pm2": "^4.2.3",
+        "reflect-metadata": "^0.1.10",
+        "routing-controllers": "^0.8.1-alpha.2",
+        "typeorm": "^0.2.22"
+    },
+    "devDependencies": {
+        "@types/node": "^13.7.4",
+        "typescript": "^3.7.5"
+    },
+    "scripts": {
+        "start": "ts-node server.ts",
+        "clean": "rm -rf ./dist/",
+        "clean:all": "rm -rf ./node_modules/ ./dist/",
+        "watch": "npm run clean && npx tsc -w",
+        "build": "npm run clean && npx tsc",
+        "pm2-dev": "npm run clean && npx tsc && (npx tsc -w & npx pm2-dev ./dist/server.js)",
+        "pm2": "npx pm2 startOrRestart ecosystem.config.yml",
+        "pm2:delete": "npx pm2 delete ecosystem.config.yml",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}
