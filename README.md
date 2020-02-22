@@ -18,3 +18,9 @@ POST，创建相册：http://localhost:7000/album
     "user": []
 }
 ```
+
+## TODO
+
+- [ ] 变更接口命名空间: `/api/`
+- [ ] 使用装饰器简化路由和控制器逻辑：routing-controllers
+- [ ] TS 依赖包路径前缀名： module-alia
