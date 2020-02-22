@@ -1,19 +1,13 @@
-import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    OneToOne,
-    JoinColumn
-} from "typeorm";
-import { Photo } from "./Photo";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Photo } from './Photo';
 
 @Entity()
 export class PhotoMetadata {
     @PrimaryGeneratedColumn()
     id: number;
-    @Column("int")
+    @Column('int')
     height: number;
-    @Column("int")
+    @Column('int')
     width: number;
     @Column()
     compressed: boolean;
@@ -25,8 +19,8 @@ export class PhotoMetadata {
         type => Photo,
         photo => photo.metadata,
         {
-            onDelete: "CASCADE"
-        }
+            onDelete: 'CASCADE',
+        },
     )
     @JoinColumn()
     photo: Photo;

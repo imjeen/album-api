@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { AlbumService } from "../services/albumService";
+import { Request, Response } from 'express';
+import { AlbumService } from '../services/albumService';
 
 export class AlbumController {
     /**

@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { PhotoService } from "../services/photoService";
+import { Request, Response } from 'express';
+import { PhotoService } from '../services/photoService';
 
 export class PhotoController {
     /**

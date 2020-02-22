@@ -1,11 +1,5 @@
-import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    OneToMany,
-    ManyToOne
-} from "typeorm";
-import { Album } from "./Album";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from 'typeorm';
+import { Album } from './Album';
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
@@ -22,7 +16,7 @@ export class User {
 
     @OneToMany(
         type => Album,
-        album => album.user
+        album => album.user,
     )
     albums: Album[];
 }

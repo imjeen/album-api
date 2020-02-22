@@ -1,13 +1,6 @@
-import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    ManyToMany,
-    JoinTable,
-    ManyToOne
-} from "typeorm";
-import { Photo } from "./Photo";
-import { User } from "./User";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, ManyToOne } from 'typeorm';
+import { Photo } from './Photo';
+import { User } from './User';
 @Entity()
 export class Album {
     @PrimaryGeneratedColumn()
@@ -18,14 +11,14 @@ export class Album {
 
     @ManyToMany(
         type => Photo,
-        photo => photo.albums
+        photo => photo.albums,
     )
     @JoinTable()
     photos: Photo[];
 
     @ManyToOne(
         type => User,
-        user => user.albums
+        user => user.albums,
     )
     user: User;
 }

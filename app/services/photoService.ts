@@ -1,10 +1,10 @@
-import { getManager, Code } from "typeorm";
-import { Photo } from "../entity/Photo";
-import { Album } from "../entity/Album";
-import { PhotoMetadata } from "../entity/PhotoMetadata";
-import { Author } from "../entity/Author";
-import { ApiResult, Message, StatusCode } from "../common/apiResult";
-import { isPropertyAccessOrQualifiedName } from "typescript";
+import { getManager, Code } from 'typeorm';
+import { Photo } from '../entity/Photo';
+import { Album } from '../entity/Album';
+import { PhotoMetadata } from '../entity/PhotoMetadata';
+import { Author } from '../entity/Author';
+import { ApiResult, Message, StatusCode } from '../common/apiResult';
+import { isPropertyAccessOrQualifiedName } from 'typescript';
 
 export class PhotoService {
     /**
@@ -55,7 +55,7 @@ export class PhotoService {
                 apiResult.message = Message.success;
             });
         } catch (error) {
-            console.log("err", error);
+            console.log('err', error);
             apiResult.code = StatusCode.failed;
             apiResult.message = Message.failed;
         }
@@ -70,9 +70,9 @@ export class PhotoService {
         if (params) console.log(6666);
         let photoReposiroty = await getManager().getRepository(Photo);
         let result = await photoReposiroty
-            .createQueryBuilder("photo")
-            .leftJoinAndSelect("photo.metadata", "metadata")
-            .leftJoinAndSelect("photo.albums", "album")
+            .createQueryBuilder('photo')
+            .leftJoinAndSelect('photo.metadata', 'metadata')
+            .leftJoinAndSelect('photo.albums', 'album')
             .getMany();
         apiResult.code = StatusCode.success;
         apiResult.data = result;

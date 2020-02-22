@@ -1,12 +1,5 @@
-import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    OneToMany,
-    JoinColumn,
-    ManyToOne
-} from "typeorm";
-import { Photo } from "./Photo";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
+import { Photo } from './Photo';
 
 @Entity()
 export class Author {
@@ -16,7 +9,7 @@ export class Author {
     name: string;
     @OneToMany(
         type => Photo,
-        photo => photo.author
+        photo => photo.author,
     )
     photos: Photo[];
 }

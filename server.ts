@@ -1,9 +1,9 @@
 // import * as path from "path";
-import app from "./app/main";
+import app from './app/main';
 
 const SERVER = {
-    HOST: process.env.HOST || "localhost",
-    PORT: process.env.PORT || 7000
+    HOST: process.env.HOST || 'localhost',
+    PORT: process.env.PORT || 7000,
 };
 
 app.listen(SERVER.PORT, () => {
@@ -16,12 +16,12 @@ app.listen(SERVER.PORT, () => {
     `);
 });
 
-process.on("uncaughtException", e => {
+process.on('uncaughtException', e => {
     console.log(e);
     process.exit(1);
 });
 
-process.on("unhandledRejection", e => {
+process.on('unhandledRejection', e => {
     console.log(e);
     process.exit(1);
 });

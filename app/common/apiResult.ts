@@ -11,12 +11,12 @@ export class ApiResult {
  */
 export const enum StatusCode {
     failed = 0,
-    success = 1
+    success = 1,
 }
 /**
  * 返回提示信息
  */
 export const enum Message {
-    success = "success",
-    failed = "failed"
+    success = 'success',
+    failed = 'failed',
 }

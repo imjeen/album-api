@@ -1,7 +1,7 @@
-import { Album } from "../entity/Album";
-import { ApiResult, Message, StatusCode } from "../common/apiResult";
-import { User } from "../entity/User";
-import { getManager, Code } from "typeorm";
+import { Album } from '../entity/Album';
+import { ApiResult, Message, StatusCode } from '../common/apiResult';
+import { User } from '../entity/User';
+import { getManager, Code } from 'typeorm';
 export class AlbumService {
     /**
      * 创建相册
@@ -11,9 +11,7 @@ export class AlbumService {
         let apiResult = new ApiResult();
         try {
             await getManager().transaction(async transactionManager => {
-                let user = await transactionManager
-                    .getRepository(User)
-                    .findOne(data.user.id);
+                let user = await transactionManager.getRepository(User).findOne(data.user.id);
                 let album = new Album();
                 album.name = data.name;
                 album.user = user;
@@ -37,8 +35,8 @@ export class AlbumService {
         try {
             let albumReposiroty = await getManager().getRepository(Album);
             let result = await albumReposiroty
-                .createQueryBuilder("album")
-                .leftJoinAndSelect("album.user", "user")
+                .createQueryBuilder('album')
+                .leftJoinAndSelect('album.user', 'user')
                 .getManyAndCount();
             apiResult.code = StatusCode.success;
             apiResult.data = result;
@@ -59,9 +57,9 @@ export class AlbumService {
         try {
             let albumReposiroty = await getManager().getRepository(Album);
             let result = albumReposiroty
-                .createQueryBuilder("album")
-                .leftJoinAndSelect("album.user", "user")
-                .where("id=:id", { id: param.id })
+                .createQueryBuilder('album')
+                .leftJoinAndSelect('album.user', 'user')
+                .where('id=:id', { id: param.id })
                 .getManyAndCount();
             apiResult.code = StatusCode.success;
             apiResult.data = result;
@@ -81,9 +79,7 @@ export class AlbumService {
         let apiResult = new ApiResult();
         try {
             await getManager().transaction(async transactionManager => {
-                let user = await transactionManager
-                    .getRepository(User)
-                    .findOne(data.user.id);
+                let user = await transactionManager.getRepository(User).findOne(data.user.id);
                 let album = new Album();
                 album.id = data.id;
                 album.name = data.name;
