@@ -1,5 +1,5 @@
 import { QueryParams, Param, Body, Get, Post, Put, Delete, JsonController } from 'routing-controllers';
-import { PhotoService } from '../services/photoService';
+import { PhotoService } from '../services/photo';
 import { Photo as PhotoEntity } from '../entity/Photo';
 
 @JsonController('/api/photo')
