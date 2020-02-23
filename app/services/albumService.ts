@@ -7,7 +7,7 @@ export class AlbumService {
      * 创建相册
      * @param data 相册信息
      */
-    static async createAlbum(data: any): Promise<ApiResult> {
+    static async post(data: any): Promise<ApiResult> {
         let apiResult = new ApiResult();
         try {
             await getManager().transaction(async transactionManager => {
@@ -30,7 +30,7 @@ export class AlbumService {
     /**
      * 查找相册列表
      */
-    static async getAlbumList(): Promise<ApiResult> {
+    static async getList(): Promise<ApiResult> {
         let apiResult = new ApiResult();
         try {
             let albumReposiroty = await getManager().getRepository(Album);
@@ -52,14 +52,14 @@ export class AlbumService {
      * 通过id查找相册
      * @param param 相册id
      */
-    static async getAlbumById(param: any): Promise<ApiResult> {
+    static async getDetail(id: any): Promise<ApiResult> {
         let apiResult = new ApiResult();
         try {
             let albumReposiroty = await getManager().getRepository(Album);
             let result = albumReposiroty
                 .createQueryBuilder('album')
                 .leftJoinAndSelect('album.user', 'user')
-                .where('id=:id', { id: param.id })
+                .where('id=:id', { id: id })
                 .getManyAndCount();
             apiResult.code = StatusCode.success;
             apiResult.data = result;
@@ -75,7 +75,8 @@ export class AlbumService {
      * 更新相册信息
      * @param data 相册信息
      */
-    static async updateAlbum(data: any): Promise<ApiResult> {
+    // TODO
+    static async put(id: any, data: any): Promise<ApiResult> {
         let apiResult = new ApiResult();
         try {
             await getManager().transaction(async transactionManager => {
@@ -100,11 +101,11 @@ export class AlbumService {
      * 通过id删除相册
      * @param param 相册id
      */
-    static async deleteAlbumById(param: any): Promise<ApiResult> {
+    static async delete(id: any): Promise<ApiResult> {
         let apiResult = new ApiResult();
         try {
             await getManager().transaction(async transactionManager => {
-                let result = await transactionManager.delete(Album, param.id);
+                let result = await transactionManager.delete(Album, id);
                 apiResult.code = StatusCode.success;
                 apiResult.data = result;
                 apiResult.message = Message.success;

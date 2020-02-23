@@ -7,11 +7,14 @@ import { ApiResult, Message, StatusCode } from '../common/apiResult';
 import { isPropertyAccessOrQualifiedName } from 'typescript';
 
 export class PhotoService {
+    static async getDetail(id: any) {
+        return { msg: 'TODO' };
+    }
     /**
      * 创建图片信息
      * @param data 图片详细信息
      */
-    static async createPhoto(data: any): Promise<ApiResult> {
+    static async post(data: any): Promise<ApiResult> {
         let apiResult = new ApiResult();
         try {
             await getManager().transaction(async transactionManager => {
@@ -65,7 +68,7 @@ export class PhotoService {
      * 获取图片列表及其关联数据
      * @param params
      */
-    static async GetPhoto(params): Promise<ApiResult> {
+    static async getList(params): Promise<ApiResult> {
         let apiResult = new ApiResult();
         if (params) console.log(6666);
         let photoReposiroty = await getManager().getRepository(Photo);
@@ -83,7 +86,8 @@ export class PhotoService {
      * 更新图片信息
      * @data 图片详细信息
      */
-    static async updatePhoto(data: any): Promise<ApiResult> {
+    // TODO
+    static async put(id: any, data: any): Promise<ApiResult> {
         let apiResult = new ApiResult();
         await getManager().transaction(async transactionManager => {
             //解析数据
@@ -128,7 +132,7 @@ export class PhotoService {
      * 通过id删除图片
      * @param params 请求参数
      */
-    static async deletePhotoById(params): Promise<ApiResult> {
+    static async delete(id: any): Promise<ApiResult> {
         let apiResult = new ApiResult();
         await getManager().transaction(async transactionManager => {
             // let result = await transactionManager.createQueryBuilder()
@@ -137,7 +141,7 @@ export class PhotoService {
             //     .where("id=:id", { id: params.id[0] })
             //     .execute();
             try {
-                let result = await transactionManager.delete(Photo, params.id);
+                let result = await transactionManager.delete(Photo, id);
                 apiResult.code = StatusCode.success;
                 apiResult.data = result;
                 apiResult.message = Message.success;
