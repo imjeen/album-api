@@ -1,6 +1,6 @@
 import { QueryParams, Param, Body, Get, Post, Put, Delete, JsonController } from 'routing-controllers';
-import { AlbumService } from '../services/album';
-import { Album as AlbumEntity } from '../entity/Album';
+import { AlbumService } from '@app/services/album';
+import { Album as AlbumEntity } from '@app/entity/Album';
 
 @JsonController('/api/album')
 export default class AlbumController {

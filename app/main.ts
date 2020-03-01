@@ -2,7 +2,7 @@ import * as path from 'path';
 import 'reflect-metadata';
 import { useExpressServer } from 'routing-controllers';
 import * as express from 'express';
-import connectMySQL from './db/mysql';
+import connectMySQL from '@app/db/mysql';
 import * as bodyParser from 'body-parser';
 
 connectMySQL();

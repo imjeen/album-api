@@ -1,9 +1,9 @@
 import { getManager, Code } from 'typeorm';
-import { Photo } from '../entity/Photo';
-import { Album } from '../entity/Album';
-import { PhotoMetadata } from '../entity/PhotoMetadata';
-import { Author } from '../entity/Author';
-import { ApiResult, Message, StatusCode } from '../common/apiResult';
+import { Photo } from '@app/entity/Photo';
+import { Album } from '@app/entity/Album';
+import { PhotoMetadata } from '@app/entity/PhotoMetadata';
+import { Author } from '@app/entity/Author';
+import { ApiResult, Message, StatusCode } from '@app/common/apiResult';
 import { isPropertyAccessOrQualifiedName } from 'typescript';
 
 export class PhotoService {
@@ -65,7 +65,7 @@ export class PhotoService {
         return apiResult;
     }
     /**
-     * 获取图片列表及其关联数据
+     * 获取图片列表及其关联数据 
      * @param params
      */
     static async getList(params): Promise<ApiResult> {
@@ -99,7 +99,7 @@ export class PhotoService {
                 album.name = data.albums[i].name;
                 albums.push(album);
             }
-            //相片作者
+            //相片作者 
             let author: Author = new Author();
             author.id = data.author.id;
             author.name = data.author.name;
@@ -113,7 +113,7 @@ export class PhotoService {
             photo.isPublished = data.isPublished;
             photo.albums = albums;
             photo.author = author;
-            //相片详情
+            //相片详情 
             let photoMetadata = new PhotoMetadata();
             photoMetadata.id = data.photoMetadata.id;
             photoMetadata.comment = data.photoMetadata.comment;

@@ -1,5 +1,11 @@
-// import * as path from "path";
+import * as moduleAlias from 'module-alias';
+import * as path from "path";
+moduleAlias.addAliases({
+    '@root': path.resolve(__dirname, './'),
+    '@app': path.resolve(__dirname, './app'),
+});
 import app from './app/main';
+
 
 const SERVER = {
     HOST: process.env.HOST || 'localhost',

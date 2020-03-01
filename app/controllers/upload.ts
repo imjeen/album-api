@@ -1,5 +1,5 @@
 import { QueryParams, Param, Body, Get, Post, Put, Delete, JsonController, UseBefore, UploadedFile } from 'routing-controllers';
-import { UploadService } from '../services/upload';
+import { UploadService } from '@app/services/upload';
 
 @JsonController('/api/upload')
 export default class UploadController {
