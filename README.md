@@ -10,6 +10,7 @@ It is a node server writen typescript with typeorm, routing-controllers and so o
 ## TODO
 
 - [x] router prefix: `/api/`
-- [x] [routing-controllers](https://www.npmjs.com/package/routing-controllers)
 - [x] [module-alia](https://www.npmjs.com/package/module-alias)
+- [x] [routing-controllers](https://www.npmjs.com/package/routing-controllers)
+- [x] [typeorm](https://github.com/typeorm/typeorm)
 - [ ] [typedi](https://www.npmjs.com/package/typedi)
