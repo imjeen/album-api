@@ -14,7 +14,7 @@
         "moduleResolution": "node",
         "resolveJsonModule": true, // json files
         "paths": {
-            "@app/*": ["app/*"],
+            "@src/*": ["src/*"]
         }
     },
     "include": ["**/*.ts"],

@@ -7,8 +7,8 @@ apps:
     exec_mode: cluster
     exec_interpreter: node
     max_memory_restart: 300M
-    error: "./tmp/logs/err.log"
-    output: "./tmp/logs/out.log"
+    error: "./temp/logs/err.log"
+    output: "./temp/logs/out.log"
     merge_logs: true
     log_date_format: YYYY-MM-DD HH:mm Z
     watch_options:

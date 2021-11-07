@@ -1,9 +1,9 @@
 import { getManager, Code } from 'typeorm';
-import { Photo } from '@app/entity/Photo';
-import { Album } from '@app/entity/Album';
-import { PhotoMetadata } from '@app/entity/PhotoMetadata';
-import { Author } from '@app/entity/Author';
-import { ApiResult, Message, StatusCode } from '@app/common/apiResult';
+import { Photo } from '@src/entity/Photo';
+import { Album } from '@src/entity/Album';
+import { PhotoMetadata } from '@src/entity/PhotoMetadata';
+import { Author } from '@src/entity/Author';
+import { ApiResult, Message, StatusCode } from '@src/common/apiResult';
 import { isPropertyAccessOrQualifiedName } from 'typescript';
 
 export class PhotoService {

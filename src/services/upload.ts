@@ -1,4 +1,4 @@
-import UtilFile from '@app/utils/file';
+import UtilFile from '@src/utils/file';
 
 export class UploadService {
     static async post(file: any) {

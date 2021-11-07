@@ -1,6 +1,6 @@
-import { Album } from '@app/entity/Album';
-import { ApiResult, Message, StatusCode } from '@app/common/apiResult';
-import { User } from '@app/entity/User';
+import { Album } from '@src/entity/Album';
+import { ApiResult, Message, StatusCode } from '@src/common/apiResult';
+import { User } from '@src/entity/User';
 import { getManager, Code } from 'typeorm';
 export class AlbumService {
     /**
