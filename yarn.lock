@@ -2201,9 +2201,9 @@ unpipe@1.0.0, unpipe@~1.0.0:
   integrity sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
 
 urijs@^1.19.0:
-  version "1.19.7"
-  resolved "https://registry.nlark.com/urijs/download/urijs-1.19.7.tgz?cache=0&sync_timestamp=1626280275060&other_urls=https%3A%2F%2Fregistry.nlark.com%2Furijs%2Fdownload%2Furijs-1.19.7.tgz#4f594e59113928fea63c00ce688fb395b1168ab9"
-  integrity sha1-T1lOWRE5KP6mPADOaI+zlbEWirk=
+  version "1.19.10"
+  resolved "https://registry.yarnpkg.com/urijs/-/urijs-1.19.10.tgz#8e2fe70a8192845c180f75074884278f1eea26cb"
+  integrity sha512-EzauQlgKuJgsXOqoMrCiePBf4At5jVqRhXykF3Wfb8ZsOBMxPcfiVBcsHXug4Aepb/ICm2PIgqAUGMelgdrWEg==
 
 util-deprecate@~1.0.1:
   version "1.0.2"
